@@ -5,6 +5,10 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -14,9 +18,11 @@ import javax.persistence.Table;
 public class Role {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private String authority;
+	private RoleEnum authority;
 	@ManyToMany(mappedBy = "roles")
 	private Set<User> users = new HashSet<>();
 	
@@ -28,10 +34,10 @@ public class Role {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getAuthority() {
+	public RoleEnum getAuthority() {
 		return authority;
 	}
-	public void setAuthority(String authority) {
+	public void setAuthority(RoleEnum authority) {
 		this.authority = authority;
 	}
 	public Set<User> getUsers() {
