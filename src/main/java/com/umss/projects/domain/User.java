@@ -3,6 +3,7 @@ package com.umss.projects.domain;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "users")
@@ -28,7 +31,7 @@ public class User {
 	private String name;
 	private String lastName;
 	// Java Collections API
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable
 	(
 		name = "UserRoles",
