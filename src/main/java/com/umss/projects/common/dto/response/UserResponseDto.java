@@ -7,7 +7,7 @@ import com.umss.projects.common.dto.request.RoleRegistrationDto;
 public class UserResponseDto {
 
 	private Long id;
-    private String email;
+    private String account;
     private String name;
     private String lastName;
     private Set<RoleRegistrationDto> roles;
@@ -23,13 +23,13 @@ public class UserResponseDto {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public String getAccount() {
+		return account;
+	}
+    
+	public void setAccount(String account) {
+		this.account = account;
+	}
 
     public String getName() {
         return name;

@@ -1,5 +1,7 @@
 package com.umss.projects.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +39,7 @@ public class UserRestController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<UserResponseDto> save(@RequestBody final UserRegistrationDto userDto) {
+	public ResponseEntity<UserResponseDto> save(@Valid @RequestBody final UserRegistrationDto userDto) {
 		UserResponseDto persistedUser = userService.save(userDto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(persistedUser);
 	}

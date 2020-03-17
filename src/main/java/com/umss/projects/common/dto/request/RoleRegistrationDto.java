@@ -1,9 +1,12 @@
 package com.umss.projects.common.dto.request;
 
+import javax.validation.constraints.NotNull;
+
 import com.umss.projects.domain.RoleEnum;
 
 public class RoleRegistrationDto {
 
+	@NotNull
 	private RoleEnum authority;
 
 
