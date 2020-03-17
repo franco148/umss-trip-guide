@@ -1,41 +1,17 @@
-package com.umss.projects.domain;
+package com.umss.projects.common.dto.request;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import com.umss.projects.domain.Role;
 
-@Entity
-@Table(name = "users")
-public class User {
+public class UserRegistrationDto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
-	@Column(nullable = false, unique = true, length = 50)
 	private String account;
-	@Column(nullable = false)
 	private String password;
-	@Column(nullable = false)
 	private String name;
 	private String lastName;
-	// Java Collections API
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable
-	(
-		name = "UserRoles",
-		joinColumns = @JoinColumn(name = "userId"),
-		inverseJoinColumns = @JoinColumn(name = "roleId")
-	)
 	private Set<Role> roles = new HashSet<>();	
 	
 	
@@ -76,6 +52,4 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-	
-	
 }

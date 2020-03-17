@@ -19,7 +19,7 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 	@Column(nullable = false)
-	private String authority;
+	private RoleEnum authority;
 	@ManyToMany(mappedBy = "roles")
 	private Set<User> users = new HashSet<>();
 	
@@ -31,10 +31,10 @@ public class Role {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getAuthority() {
+	public RoleEnum getAuthority() {
 		return authority;
 	}
-	public void setAuthority(String authority) {
+	public void setAuthority(RoleEnum authority) {
 		this.authority = authority;
 	}
 	public Set<User> getUsers() {

@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.umss.projects.domain.User;
+import com.umss.projects.common.dto.request.UserRegistrationDto;
+import com.umss.projects.common.dto.response.UserResponseDto;
 import com.umss.projects.service.UserService;
 
 @RestController
@@ -24,20 +25,20 @@ public class UserRestController {
 	
 
 	@GetMapping
-	public ResponseEntity<Iterable<User>> getAllUser() {
-		Iterable<User> usersResponse = userService.findAllSortedByName();
+	public ResponseEntity<Iterable<UserResponseDto>> getAllUser() {
+		Iterable<UserResponseDto> usersResponse = userService.findAllSortedByName();
 		return ResponseEntity.ok(usersResponse);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<User> findById(@PathVariable("id") final Long userId) {
-		User userResponse = userService.findById(userId);
+	public ResponseEntity<UserResponseDto> findById(@PathVariable("id") final Long userId) {
+		UserResponseDto userResponse = userService.findById(userId);
 		return ResponseEntity.ok(userResponse);
 	}
 	
 	@PostMapping
-	public ResponseEntity<User> save(@RequestBody final User user) {
-		User persistedUser = userService.save(user);
+	public ResponseEntity<UserResponseDto> save(@RequestBody final UserRegistrationDto userDto) {
+		UserResponseDto persistedUser = userService.save(userDto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(persistedUser);
 	}
 	
