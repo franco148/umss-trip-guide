@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 
 import com.umss.projects.common.dto.request.UserRegistrationDto;
 import com.umss.projects.common.dto.response.UserResponseDto;
-import com.umss.projects.domain.User;
-import com.umss.projects.repository.UserRepository;
+import com.umss.projects.persistence.domain.User;
+import com.umss.projects.persistence.repository.UserRepository;
 
 @Service
 public class UserService {

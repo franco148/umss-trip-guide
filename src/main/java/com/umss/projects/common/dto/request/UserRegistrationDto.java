@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-import com.umss.projects.domain.Role;
+import com.umss.projects.persistence.domain.Role;
 
 public class UserRegistrationDto {
 
