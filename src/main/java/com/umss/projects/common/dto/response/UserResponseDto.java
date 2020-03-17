@@ -11,8 +11,6 @@ public class UserResponseDto {
     private String name;
     private String lastName;
     private Set<RoleRegistrationDto> roles;
-    private Boolean isEnabled;
-    private Boolean isDeleted;
 
 
     public Long getId() {
@@ -53,21 +51,5 @@ public class UserResponseDto {
 
     public void setRoles(Set<RoleRegistrationDto> roles) {
         this.roles = roles;
-    }
-
-    public Boolean getEnabled() {
-        return isEnabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        isEnabled = enabled;
-    }
-
-    public Boolean getDeleted() {
-        return isDeleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        isDeleted = deleted;
     }
 }
