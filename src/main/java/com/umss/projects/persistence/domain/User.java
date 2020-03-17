@@ -1,4 +1,4 @@
-package com.umss.projects.domain;
+package com.umss.projects.persistence.domain;
 
 import java.util.HashSet;
 import java.util.Set;

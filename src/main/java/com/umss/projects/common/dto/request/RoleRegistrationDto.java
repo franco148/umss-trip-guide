@@ -2,7 +2,7 @@ package com.umss.projects.common.dto.request;
 
 import javax.validation.constraints.NotNull;
 
-import com.umss.projects.domain.RoleEnum;
+import com.umss.projects.persistence.domain.RoleEnum;
 
 public class RoleRegistrationDto {
 
